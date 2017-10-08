@@ -1,3 +1,4 @@
+#TODO:因为我的账户没有进行成绩审查,所以目前不能对数据测试,但是四六级成绩是可以查看的,并且成功了.
 from PIL import Image
 import time
 from bs4 import BeautifulSoup
@@ -40,3 +41,6 @@ myDriver.get_screenshot_as_file("temp2.jpg")
 im2=Image.open("temp2.jpg")
 Image._show(im2)
 print(myDriver.get_cookies())
+gradeUrl='http://jwk.lzu.edu.cn/academic/accessModule.do?moduleId=2090&groupId='
+myDriver.get(gradeUrl)
+myDriver.get_screenshot_as_file("temp3.jpg")
