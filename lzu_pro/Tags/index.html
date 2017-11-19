@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="js/tag.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/tag.css" />
+	</head>
+	<body>
+		<h2>添加标签</h2>
+		<p>在下面输入框中输入标签值，并且回车，如果添加多个标签可用逗号：','或者'，'分开</p>
+		<input type="text" id="tagValue" > 输入后按回车
+		
+		
+		
+		
+		<br/><br/><br/>
+		<h2>初始化已设标签</h2>
+		<p>在调用innitView之前设置tagValue，如：tag1.tagValue = "浙江,绍兴,上海,山东,北京,四川";</p>
+		<input type="text" id="tagValue1">
+		
+		
+		
+		
+		<br/><br/><br/>
+		<h2>修改标签</h2>
+		<p>双击标签进行修改标签，修改其中内容，回车或者让编辑失去焦点</p>
+		
+				
+		
+		<br/><br/><br/>
+		<h2>删除标签</h2>
+		<p>删除标签，有两种方式，</p>
+		<p>第一种：移到标签上点击右上角红色小叉</p>
+		<p>第二种：双击标签进行修改标签，内容全部删除，回车或者让编辑失去焦点</p>
+		
+		
+		<br/><br/><br/>
+		<h2>禁用标签操作</h2>
+		<p>在调用innitView之前设置isDisable=true，如：tag2.isDisable=true;</p>
+		<input type="text" id="tagValue2">
+		
+		
+		<br/><br/><br/>
+		<h2>方法启用禁用标签操作</h2>
+		<p>启用：unDisableFun(),禁用：disableFun()</p>
+		<input type="text" id="tagValue3">
+		
+		<br/><br/><br/><br/>
+		<button onclick="openUpdate()">开启</button>
+		<button onclick="closeUpdate()">关闭</button>
+
+	</body>
+</html>
+<script type="text/javascript">
+	//添加标签
+	var tag = new Tag("tagValue");
+	tag.initView();
+	
+	
+	//初始化已有标签
+	var tag1 = new Tag("tagValue1");
+	tag1.tagValue = "浙江,绍兴,上海,山东,北京,四川";
+	tag1.initView();
+	
+	//禁用标签操作
+	var tag2 = new Tag("tagValue2");
+	tag2.tagValue = "浙江,绍兴,上海,山东,北京,四川";
+	tag2.isDisable=true;
+	tag2.initView();
+	
+	//禁用标签操作
+	var tag3 = new Tag("tagValue3");
+	tag3.tagValue = "浙江,绍兴,上海,山东,北京,四川";
+	tag3.initView();
+	
+	function openUpdate(){
+		tag3.unDisableFun();
+	}
+	function closeUpdate(){
+		tag3.disableFun();
+	}
+	
+</script>

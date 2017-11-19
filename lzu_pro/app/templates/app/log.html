@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这是一个测试</title>
+    <link rel="stylesheet" href="star/css/star-rating.css">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="./css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
+    <!--suppress JSUnresolvedLibraryURL -->
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="./js/star-rating.js" type="text/javascript"></script>
+    <script src="star/js/star-rating.js" type="text/javascript"></script>
+</head>
+<body>
+<input name="star" id="star10" class="kv-ltr-theme-fa-alt"
+       value='4' dir="ltr" data-size="xs"
+       data-show-clear="true"
+       data-show-caption="false"/>
+<script>
+        $(document).ready(function () {
+                    $("#star10").rating({
+            "displayOnly": true,
+            "step": "1"
+        })
+        })
+</script>
+</body>
+</html>

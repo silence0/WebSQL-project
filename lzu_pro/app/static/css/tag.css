@@ -1,0 +1,33 @@
+div.tagBlock{
+    margin-top:20px;
+    min-height: 54.33px;
+}
+
+div.tagBlock span{
+    background-color: antiquewhite;
+    border-radius: 8px;
+    display: inline-block;
+    color: deeppink;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-left:12px;
+    margin-top:5px;
+    cursor: pointer;
+
+}
+div.tagBlock span:active{
+    color:white;
+}
+
+div.tagBlock label{
+    display: block;
+    color: chocolate;
+}
+div.choosed{
+
+}
+div.unchoosed{
+
+}

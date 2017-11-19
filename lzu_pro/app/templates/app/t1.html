@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>腳本之家_www.jb51.net_阿當製作選星星打分</title>
+<style type="text/css">
+.starWrapper{border:1px solid #FFCC00;padding:5px;width:70px;}
+.starWrapper img{cursor:pointer;}
+</style>
+<script type="text/javascript">
+function rate(obj,oEvent){
+//==================
+// 圖片地址設置
+//==================
+var imgSrc = 'http://www.jb51.net/upload/20080508122008586.gif'; //沒有填色的星星
+var imgSrc_2 = 'http://www.jb51.net/upload/20080508122010810.gif'; //打分後有顏色的星星
+//---------------------------------------------------------------------------
+if(obj.rateFlag) return;
+var e = oEvent || window.event;
+var target = e.target || e.srcElement;
+var imgArray = obj.getElementsByTagName("img");
+for(var i=0;i<imgArray.length;i++){
+   imgArray[i]._num = i;
+   imgArray[i].onclick=function(){
+    if(obj.rateFlag) return;
+    obj.rateFlag=true;
+    alert(this._num+1);       //this._num+1這個數字寫入到數據庫中,作為評分的依據
+   };
+}
+if(target.tagName=="IMG"){
+   for(var j=0;j<imgArray.length;j++){
+    if(j<=target._num){
+     imgArray[j].src=imgSrc_2;
+    } else {
+     imgArray[j].src=imgSrc;
+    }
+   }
+} else {
+   for(var k=0;k<imgArray.length;k++){
+    imgArray[k].src=imgSrc;
+   }
+}
+}
+</script>
+<body>
+<p class="starWrapper" onmouseover="rate(this,event)">
+<img src="http://www.jb51.net/upload/20080508122008586.gif" title="很爛" />
+<img src="http://www.jb51.net/upload/20080508122008586.gif" title="一般" />
+<img src="http://www.jb51.net/upload/20080508122008586.gif" title="還好" />
+<img src="http://www.jb51.net/upload/20080508122008586.gif" title="較好" />
+<img src="http://www.jb51.net/upload/20080508122008586.gif" title="很好" />
+
+</body>
+</html>

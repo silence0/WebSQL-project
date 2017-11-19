@@ -1,0 +1,98 @@
+<!doctype html>
+<html class="no-js" lang="">
+    {% load staticfiles %}
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png" %}>
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href={%  static "css/normalize.css" %}>
+        <link rel="stylesheet" href={%  static "css/main.css" %}>
+        <link rel="stylesheet" href={%  static "css/offline.css" %}>
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+
+        <div id="bg" onclick="javascript:closeDiv()">
+            <div id="block" onclick="stopBubble(this.id)">
+                <form action="/app/logincheck" method="post">
+                    {% csrf_token %}
+                    <h2>接入教务在线</h2>
+                    <div id="schoolID">
+                        <label><img src={% static "img/backgroundimg/people.png" %}></label>
+                        <input placeholder="校园卡号" name="userID">
+                    </div>
+                    <div id="password">
+                        <label><img src={% static "img/backgroundimg/password.png" %}></label>
+                        <input type="password" name="userPassword">
+                    </div>
+                    <input type="submit">提交</input>
+                </form>
+            </div>
+            <div class="begin" onclick="stopBubble(this.id)">
+                <a >现 在 开 始</a>
+            </div>
+        </div>
+        <div id="bgimg">
+            <img src={% static "img/backgroundimg/offlinebgimg.jpg" %} width="100%" />
+        </div>
+
+        <div class="topbar">
+            <a href="/" ><img src={% static "img/backgroundimg/logo.png" %} width="10%"></a>
+            <div id="login">
+                <a href="javascript:showDiv()">登 录</a>
+            </div>
+        </div>
+
+        <div id="center">
+            <img src={% static "img/backgroundimg/center.png" %}>
+        </div>
+        <div class="begin">
+            <a onclick="javascript:showDiv()">现 在 开 始</a>
+        </div>
+
+
+
+
+
+        <script src={% static "js/vendor/modernizr-3.5.0.min.js" %}></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src={% static "js/vendor/jquery-3.2.1.min.js" %}><\/script>')</script>
+        <script src={% static "js/plugins.js" %}></script>
+        <script src={% static "js/main.js" %}></script>
+
+        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+        <script>
+            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+        </script>
+        <script type="text/javascript">
+            function showDiv(){
+                document.getElementById('bg').style.display='block';
+            }
+            function closeDiv(){
+                document.getElementById('bg').style.display='none';
+            }
+            function stopBubble(e) {
+                if (e && e.stopPropagation) {//非IE浏览器
+                    e.stopPropagation();
+                }
+                else {//IE浏览器
+                    window.event.cancelBubble = true;
+                }
+            }
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    </body>
+</html>

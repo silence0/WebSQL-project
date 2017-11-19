@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>ajaxtest</title>
+    <script src={% static "js/vendor/jquery-3.2.1.min.js"  %} ></script>
+</head>
+<body>
+<div>
+    <p>这里是要测试的段落</p>
+<p>{% url 'to' %}</p>
+
+</div>
+<div>
+    这个会不会不现实呢
+</div>
+<input type="button" id="bu" value="点我一下">
+<script>
+    $(document).ready(
+        function(){
+            $("div").click(
+                function () {
+                    $("div").hide()
+                }
+            )
+        }
+    )
+    
+    $("p").click(
+        function(){
+            $.getJSON(
+                "{% url 'to' %}",
+                function(a){
+                    for (var i =0;i<=a.length-1;i++){
+                        $("p").append(" "+a[i])
+                    }
+                }
+            )
+        }
+    )
+</script>
+
+</body>
+</html>

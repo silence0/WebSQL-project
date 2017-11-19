@@ -1,0 +1,205 @@
+<!doctype html>
+<html class="no-js" lang="">
+{% load staticfiles %}
+
+<head>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!--suppress JSUnresolvedLibraryURL -->
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href={% static "css/normalize.css" %}>
+    <link rel="stylesheet" href={% static "css/pure-min.css" %}>
+    <link rel="stylesheet" href={% static "css/main.css" %}>
+    <link rel="stylesheet" href={% static "css/index.css" %}>
+    <script src={% static "js/vendor/jquery-3.2.1.min.js" %}></script>
+
+    <link rel="stylesheet" href={% static "star/css/star-rating.min.css" %}>
+    <script src={% static "star/js/star-rating.js" %}></script>
+
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    {#        <link rel="stylesheet" href="css/normalize.css">#}
+    {#        <link rel="stylesheet" href="css/pure-min.css">#}
+    {#        <link rel="stylesheet" href="css/main.css">#}
+    {#        <link rel="stylesheet" href="css/index.css">#}
+
+</head>
+<body>
+
+<!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+<!-- Add your site or application content here -->
+<div class="top">
+    <div class="topbar">
+        <a href="/app/home"><img src={% static "img/backgroundimg/logo.png" %} width="10%"></a>
+        <div id="login">
+            <span>你好，{{ userName }}&nbsp;&nbsp;</span><i></i>
+            <a href="/app/logout/">退出登录</a>
+        </div>
+    </div>
+    <div class="pure-g">
+        <div class="pure-u-7-24"></div>
+        <div class="pure-u-10-24" id="center">
+            {#            <form id="searchForm" method="get" action="">#}
+            <div id="searchDiv">
+                    <span>
+                        <input id="sr" placeholder="课程名、教师名">
+                        <span class="search"></span>
+                    </span>
+            </div>
+            {#            </form>#}
+            <script>
+                {#                alert("123")#}
+                $(document).ready(function ttt() {
+                    $(".search").click(function () {
+                        var name = $("#sr").val();
+                        var act = '/app/search/' + name;
+                        $("#searchForm").attr('action', act);
+                        window.location = act;
+                    })
+                })
+            </script>
+            <p>热门搜索：影视鉴赏，高等数学，艺术史</p>
+        </div>
+        <div class="pure-u-7-24"></div>
+    </div>
+</div>
+
+<div class="pure-g">
+    <div class="pure-u-2-24"></div>
+    <div id="left" class="pure-u-14-24">
+
+        {#                这是一个模板,按照这个来填,i里面有每个框要写的东西,info是个list,i是个dict#}
+        {% for i in infoObjList %}
+
+            <div class="courseblank" style="display: none;">
+                <div class="course pure-g" id="course1">
+                    <div class="pure-u-2-5">
+                        <img class="courseimg" src={% static "img/backgroundimg/computer.jpg" %}>
+                    </div>
+                    <div class="pure-u-3-5">
+
+                        <div class="coursewords">
+                            <div class="stars">
+                                {#                                <img src={% static "img/backgroundimg/starO.png" %}>#}
+                                {#                                <img src={% static "img/backgroundimg/starO.png" %}>#}
+                                {#                                <img src={% static "img/backgroundimg/starO.png" %}>#}
+                                {#                                <img src={% static "img/backgroundimg/starO.png" %}>#}
+                                {#                                <img src={% static "img/backgroundimg/star.png" %}>#}
+                                <input name="star" id="star{{ i.index }}" class="kv-ltr-theme-fa-alt"
+                                       value={{ i.judge }} dir="ltr" data-size="xs"
+                                       data-show-clear="true"
+                                       data-show-caption="false"/>
+                                <script>
+
+                                    $("#star" +{{ i.index }}).rating({
+                                        "displayOnly": true,
+                                        "step": "1"
+                                    })
+
+                                </script>
+                            </div>
+
+                            <a class="coursename" href="{% url 'course' i.courseID %}">{{ i.course }}</a>
+                            <a class="others" href="{% url 'teacher' i.teacherID %}">{{ i.teacher }}</a>
+                            <p class="others">平均分：{{ i.grade }} 通过率：{{ i.pass }}</p>
+                            <div class="others othersdiv">
+                                <img class="peopleimg" src={% static "img/backgroundimg/people2.png" %}> {{ i.people }}人参加
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+            </div>
+        {% endfor %}
+
+
+
+
+        <div class="more">显示更多</div>
+
+    </div>
+    <div class="pure-u-1-24"></div>
+    <div class="pure-u-5-24">
+        <p class="coursename">热门课程：</p>
+        {% for i in topList %}
+            <p id="top{{ i.topIndex }}" class="hotcourse others">{{ i.topIndex }}:  {{ i.topName }}</p>
+            <script>
+                $("#top{{ i.topIndex }}").click(function () {
+                    window.open('/app/course/{{ i.topIndex }}')
+                })
+            </script>
+        {% endfor %}
+        {#        <p class="hotcourse others">2. 现当代文学</p>#}
+        {#        <p class="hotcourse others">3. 哲学通论</p>#}
+        {#        <p class="hotcourse others">4. 中国建筑史</p>#}
+        {#        <p class="hotcourse others">5. 音乐美学</p>#}
+        {#        <p class="hotcourse others">6. 中医美容学</p>#}
+        {#        <p class="hotcourse others">7. 中国古玉文化</p>#}
+        {#        <p class="hotcourse others">8. English Speaking</p>#}
+        {#        <p class="hotcourse others">9. 人生哲学</p>#}
+        {#        <p class="hotcourse others">10. 影视中的近代中国与世界</p>#}
+    </div>
+    <div class="pure-u-2-24"></div>
+</div>
+
+<div class="footer pure-g">
+    <div class="pure-u-2-24"></div>
+    <div class="pure-u-20-24">
+        <hr/>
+        <p>© 2017 <a>Limited</a> BETA 1.8 All Right Reserved. <a>联系我们</a> or <a>Donate for servers</a>,though</p>
+    </div>
+    <div class="pure-u-2-24"></div>
+</div>
+
+<script src={% static "js/vendor/modernizr-3.5.0.min.js" %}></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src={% static "js/vendor/jquery-3.2.1.min.js" %}><\/script>')</script>
+<script src={% static "js/plugins.js" %}></script>
+<script src={% static "js/main.js" %}></script>
+<script>
+    $(document).ready(
+        function () {
+            i = 0
+            j = i + 10
+            for (i; i < j; i++)
+                $('.courseblank:eq(' + i + ')').show()
+            $("div.more").click(
+                function () {
+                    j = i + 10
+                    for (i; i < j; i++)
+                        $('.courseblank:eq(' + i + ')').show()
+                }
+            )
+        }
+    )
+
+</script>
+
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script>
+    window.ga = function () {
+        ga.q.push(arguments)
+    };
+    ga.q = [];
+    ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto');
+    ga('send', 'pageview')
+</script>
+<script type="text/javascript">
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
+</html>
