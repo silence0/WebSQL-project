@@ -16,6 +16,7 @@
         <link rel="stylesheet" href={%  static "css/normalize.css" %}>
         <link rel="stylesheet" href={%  static "css/main.css" %}>
         <link rel="stylesheet" href={%  static "css/offline.css" %}>
+        <script src="{% static 'js/vendor/jquery-3.2.1.min.js' %}"></script>
     </head>
     <body>
         <!--[if lte IE 9]>
@@ -37,8 +38,12 @@
                         <label><img src={% static "img/backgroundimg/password.png" %}></label>
                         <input type="password" name="userPassword">
                     </div>
-                    <input type="submit">提交</input>
+                    <input type="submit" id="submit" style="display: none;">
+                    <div id="submit2" style="cursor:pointer;position: absolute;margin-top:10px;background-color:#fcffe238;font-size: 20px;min-height: 36px;min-width: 100%;text-align: center;color: white;">
+                        提交
+                    </div>
                 </form>
+
             </div>
             <div class="begin" onclick="stopBubble(this.id)">
                 <a >现 在 开 始</a>
@@ -59,7 +64,7 @@
             <img src={% static "img/backgroundimg/center.png" %}>
         </div>
         <div class="begin">
-            <a onclick="javascript:showDiv()">现 在 开 始</a>
+            <a style="display:inline-block;width: 100%;height: 100%;" onclick="javascript:showDiv()">现 在 开 始</a>
         </div>
 
 
@@ -80,9 +85,11 @@
         <script type="text/javascript">
             function showDiv(){
                 document.getElementById('bg').style.display='block';
+                $(".begin").hide();
             }
             function closeDiv(){
                 document.getElementById('bg').style.display='none';
+                $(".begin").show()
             }
             function stopBubble(e) {
                 if (e && e.stopPropagation) {//非IE浏览器
@@ -91,8 +98,14 @@
                 else {//IE浏览器
                     window.event.cancelBubble = true;
                 }
+
             }
         </script>
+                        <script>
+                    $("#submit2").click(function () {
+                        $("#submit").click()
+                    })
+                </script>
         <script src="https://www.google-analytics.com/analytics.js" async defer></script>
     </body>
 </html>
