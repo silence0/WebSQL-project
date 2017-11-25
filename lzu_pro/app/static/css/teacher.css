@@ -97,6 +97,7 @@ body {
 .others {
     font-size: 20px;
     color: #9a9a9a;
+    display: block;
 }
 
 #teachername {

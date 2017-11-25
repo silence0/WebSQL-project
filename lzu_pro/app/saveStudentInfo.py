@@ -146,6 +146,7 @@ def toplog(request, username, password):
         return jess
     request.session['JSESSIONID'] = jess
     request.session['userName'] = getname(jess)
+
     for i in range(35, 38):
         savelesson(username, jess, i.__str__(), '1')
         savelesson(username, jess, i.__str__(), '2')

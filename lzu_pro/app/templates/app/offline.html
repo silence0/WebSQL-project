@@ -44,14 +44,21 @@
                     </div>
                 </form>
 
+
             </div>
             <div class="begin" onclick="stopBubble(this.id)">
                 <a >现 在 开 始</a>
             </div>
+
         </div>
         <div id="bgimg">
             <img src={% static "img/backgroundimg/offlinebgimg.jpg" %} width="100%" />
         </div>
+{#                        <div style="position:absolute;#}
+{#                        left:50%;top:50%;#}
+{#                        transform: translate(50%,50%);">#}
+{#                    <img src="{% static 'img/loading2.gif' %}">#}
+{#                </div>#}
 
         <div class="topbar">
             <a href="/" ><img src={% static "img/backgroundimg/logo.png" %} width="10%"></a>
@@ -100,6 +107,9 @@
                 }
 
             }
+            $("#submit").click(function () {
+                $("loading").show();
+            })
         </script>
                         <script>
                     $("#submit2").click(function () {

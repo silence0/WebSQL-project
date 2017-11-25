@@ -7,6 +7,7 @@ class Student(models.Model):
     name=models.CharField('姓名',max_length=20)
     studentID=models.CharField("用户名",max_length=20)
     lessonObj=models.ManyToManyField("Lesson", through="LessonComment")
+    # studentPSW = models.CharField("密码",max_length=20,blank=True)
 
 class LessonComment(models.Model):
     studentObj=models.ForeignKey(Student)
