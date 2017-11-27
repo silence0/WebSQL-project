@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'^test$',views.log.logGetCaptcha),
     url(r'^app/',include('app.urls')),
-    url(r'^$',app.views.offline)
+    url(r'^$',app.views.home)
 ]
