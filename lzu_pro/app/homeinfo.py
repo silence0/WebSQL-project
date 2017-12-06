@@ -21,7 +21,7 @@ def getInfoObj(userID):
         teacherObjList.append(tempTeacher)
         schoolNameList.append(tempTeacher.school)
         peopleList.append(lessonObj.lessonPeople)
-        averageList.append(lessonObj.lessonAverage)
+        averageList.append(float("%.2f"%lessonObj.lessonAverage))
         passRateList.append(lessonObj.lessonPassRate)
         judgeList.append(lessonObj.lessonAverageJudge)
     lessonNameList = []
