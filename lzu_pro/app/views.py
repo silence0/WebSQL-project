@@ -109,6 +109,16 @@ def teacher(request, ID):
         allDic['userName'] = request.session['userName']
     except:
         return redirect(r'/app/offline')
+
+    topLessonObjList = getTopLessonObjList()
+    outTopList = []
+    for i in topLessonObjList:
+        thisObjStr = {}
+        thisObjStr['topName'] = i.lessonName
+        thisObjStr['topID'] = i.pk
+        thisObjStr['topIndex'] = topLessonObjList.index(i)+1
+        outTopList.append(thisObjStr.copy())
+    allDic['topList'] = outTopList
     return render(request, r'app/teacher.html', context=allDic)
 
 
