@@ -42,12 +42,15 @@
 .commentDialog div.submit{
     background-color: deepskyblue;
     color: white;
-    /*display:block;*/
-
+    /* display: block; */
     margin-top: 20px;
     text-align: center;
-    margin-left:-20px;
-    margin-right:-20px;
+    margin-left: -20px;
+    margin-right: -20px;
     cursor: pointer;
+    width: 100px;
+    margin: 20px auto;
+    height: 25px;
+    line-height: 25px;
 }
 

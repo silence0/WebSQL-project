@@ -98,7 +98,7 @@
                                 {#                                <img src={% static "img/backgroundimg/starO.png" %}>#}
                                 {#                                <img src={% static "img/backgroundimg/star.png" %}>#}
                                 <input name="star" id="star{{ i.index }}" class="kv-ltr-theme-fa-alt"
-                                       value={{ i.judge }} dir="ltr" data-size="xs"
+                                       value={{ i.judge }} dir="ltr" data-size="s"
                                        data-show-clear="true"
                                        data-show-caption="false"/>
                                 <script>
@@ -111,8 +111,8 @@
                                 </script>
                             </div>
 
-                            <a class="coursename" href="{% url 'course' i.courseID %}">{{ i.course }}</a>
-                            <a class="others" href="{% url 'teacher' i.teacherID %}">{{ i.teacher }}</a>
+                            <p class="coursename"> <a href="{% url 'course' i.courseID %}">{{ i.course }}</a></p>
+                            <p class="others" ><a href="{% url 'teacher' i.teacherID %}">{{ i.teacher }}</a></p>
                             <p class="others">平均分：{{ i.grade }} 通过率：{{ i.pass }}</p>
                             <div class="others othersdiv">
                                 <img class="peopleimg" src={% static "img/backgroundimg/people2.png" %}> {{ i.people }}人参加
