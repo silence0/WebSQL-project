@@ -90,11 +90,7 @@ def course(request, ID):
         thisObjStr['topID'] = i.pk
         thisObjStr['topIndex'] = topLessonObjList.index(i)+1
         outTopList.append(thisObjStr.copy())
-    alldict = {
-        'infoObjList': infoObjList,
-        'userName': userName,
-        'topList':outTopList
-    }
+
     dic['topList'] = outTopList
     return render(request, r'app/course.html', context=dic)
 

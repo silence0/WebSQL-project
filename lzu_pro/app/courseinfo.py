@@ -47,7 +47,7 @@ def getCourseInfo(ID):
 
         # 这个是大家对这门课程的总体评价
         'tag': lessonPartLabelList,
-        'average': average,
+        'average': float("%.2f"%average),
         'schoolName': schoolName,
         'peopleObj': peopleCommentObjList,
         'commentNum': commentNum
