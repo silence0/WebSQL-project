@@ -1,6 +1,7 @@
 from app.models import Teacher,Lesson,LessonComment,LessonLabel
 from collections import Counter
 def getTeacherInfo(teacherID):
+    putDisplayLabel(teacherID)
     thisTeacher = Teacher.objects.get(pk=teacherID)
     lessonObjList = Lesson.objects.filter(teacherObj=thisTeacher)
     lessonDic = {}
@@ -25,7 +26,7 @@ def getTeacherInfo(teacherID):
     allDic['teacherJudge'] = teacherJudge
     # 因为judge是肯定要读的,所以顺便算了并且保存
     thisTeacher.judge = teacherJudge
-    putDisplayLabel(teacherID=teacherID)
+    # putDisplayLabel(teacherID=teacherID)
     tempString = thisTeacher.teacherDisplayLabel
     labelList = tempString.split(',')
     allDic['tagList'] = labelList

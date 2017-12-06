@@ -32,14 +32,24 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="77" column="18" lean-forward="true" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
+            <state relative-caret-position="79">
+              <caret line="102" column="22" lean-forward="true" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="courseinfo.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="teacherinfo.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/teacherinfo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-330">
+              <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="courseinfo.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/courseinfo.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="632">
@@ -62,18 +72,8 @@
       <file leaf-file-name="teacher.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/app/teacher.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="46" column="31" lean-forward="true" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="offline.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/static/css/offline.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="35" column="18" lean-forward="false" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+            <state relative-caret-position="396">
+              <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -130,7 +130,6 @@
       <find>登</find>
       <find>submit</find>
       <find>course</find>
-      <find>teacher</find>
       <find>.stars</find>
       <find>热门课程</find>
       <find>omment</find>
@@ -139,8 +138,9 @@
       <find>1px</find>
       <find>blo</find>
       <find>img</find>
-      <find>female</find>
       <find>others</find>
+      <find>female</find>
+      <find>teacher</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -159,6 +159,7 @@
         <option value="$PROJECT_DIR$/app/homeinfo.py" />
         <option value="$PROJECT_DIR$/app/views.py" />
         <option value="$PROJECT_DIR$/app/courseinfo.py" />
+        <option value="$PROJECT_DIR$/app/teacherinfo.py" />
       </list>
     </option>
   </component>
@@ -171,8 +172,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-11" />
     <option name="y" value="-11" />
-    <option name="width" value="1934" />
-    <option name="height" value="1094" />
+    <option name="width" value="1942" />
+    <option name="height" value="1042" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -504,14 +505,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/templates/app/comment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/static/star/css/star-rating.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1287">
@@ -827,14 +820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/app/teacher.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="46" column="31" lean-forward="true" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -859,18 +844,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="77" column="18" lean-forward="true" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/courseinfo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="632">
           <caret line="50" column="33" lean-forward="true" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/app/teacher.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="102" column="22" lean-forward="true" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/teacherinfo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-330">
+          <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="19" />
           <folding />
         </state>
       </provider>
