@@ -16,6 +16,10 @@ body {
     height: 100%;
     z-index: -1;
 }
+#bgimg img{
+    height:100%;
+    width:100%;
+}
 
 #bg {
     display: none;
@@ -28,7 +32,7 @@ body {
 
 #bg #block {
     width: 20em;
-    height: 47%;
+    height: 261px;
     position: absolute;
     top: 13em;
     left: 0;

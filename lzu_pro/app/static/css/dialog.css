@@ -25,8 +25,8 @@
 }
 .commentDialogBackground{
     background-color: rgba(154,154,154,0.5);
-    width: 40%;
-    height: 85%;
+    width: 500px;
+    height: 467px;
     position: fixed;
     top: 50%;
     left: 50%;
