@@ -80,6 +80,22 @@ def course(request, ID):
         dic['userName'] = request.session['userName']
     except:
         return redirect(r'/app/offline')
+    infoObjList = getInfoObj(request.session['userID'])
+    userName = request.session['userName']
+    topLessonObjList = getTopLessonObjList()
+    outTopList = []
+    for i in topLessonObjList:
+        thisObjStr = {}
+        thisObjStr['topName'] = i.lessonName
+        thisObjStr['topID'] = i.pk
+        thisObjStr['topIndex'] = topLessonObjList.index(i)+1
+        outTopList.append(thisObjStr.copy())
+    alldict = {
+        'infoObjList': infoObjList,
+        'userName': userName,
+        'topList':outTopList
+    }
+    dic['topList'] = outTopList
     return render(request, r'app/course.html', context=dic)
 
 

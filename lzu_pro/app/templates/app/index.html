@@ -137,7 +137,7 @@
             <p id="top{{ i.topIndex }}" class="hotcourse others">{{ i.topIndex }}:  {{ i.topName }}</p>
             <script>
                 $("#top{{ i.topIndex }}").click(function () {
-                    window.open('/app/course/{{ i.topIndex }}')
+                    window.open('/app/course/{{ i.topID }}')
                 })
             </script>
         {% endfor %}

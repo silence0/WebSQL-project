@@ -95,6 +95,7 @@
         $("form.commentForm").submit();
 
     }
+
     $("#close").click(function () {
         $(".commentDialogBackground").hide()
     })
@@ -115,7 +116,7 @@
 </script>
 <script>
     $(document).ready(function () {
-        $.fn.setTag("爱点名,爱挂人,给重点,给分高,作业多" ,'unchoosed');
+        $.fn.setTag("爱点名,爱挂人,给重点,给分高,作业多", 'unchoosed');
         {#    $.fn.setTag('a,b,c','choosed');#}
     })
 </script>
@@ -165,19 +166,15 @@
     </div>
     <div class="pure-u-1-24"></div>
     <div class="pure-u-5-24">
-        <div>
-            <p class="coursename">热门课程：</p>
-            <p class="hotcourse others">1. 艺术史</p>
-            <p class="hotcourse others">2. 现当代文学</p>
-            <p class="hotcourse others">3. 哲学通论</p>
-            <p class="hotcourse others">4. 中国建筑史</p>
-            <p class="hotcourse others">5. 音乐美学</p>
-            <p class="hotcourse others">6. 中医美容学</p>
-            <p class="hotcourse others">7. 中国古玉文化</p>
-            <p class="hotcourse others">8. English Speaking</p>
-            <p class="hotcourse others">9. 人生哲学</p>
-            <p class="hotcourse others">10. 影视中的近代中国与世界</p>
-        </div>
+        <p class="coursename">热门课程：</p>
+        {% for i in topList %}
+            <p style="cursor: pointer" id="top{{ i.topIndex }}" class="hotcourse others">{{ i.topIndex }}: {{ i.topName }}</p>
+            <script>
+                $("#top{{ i.topIndex }}").click(function () {
+                    window.open('/app/course/{{ i.topID }}')
+                })
+            </script>
+        {% endfor %}
     </div>
     <div class="pure-u-2-24"></div>
 </div>
