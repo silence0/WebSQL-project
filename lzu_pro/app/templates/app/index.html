@@ -91,21 +91,8 @@
                     <div class="pure-u-3-5">
 
                         <div class="coursewords">
-                            <div class="stars">
-                                <input name="star"  id="star{{ i.index }}" class="kv-ltr-theme-fa-alt"
-                                       value={{ i.judge }} dir="ltr" data-size="s"
-                                       data-show-clear="false"
-                                       data-show-caption="false"/>
-                                <script>
-
-                                    $("#star" +{{ i.index }}).rating({
-                                        "displayOnly": true,
-                                        "step": "1"
-                                    })
-
-                                </script>
+                            <div class="stars {{ i.judge }}" id="star{{ i.index }}" class ="{{ i.judge }}" >
                             </div>
-
                             <p class="coursename"> <a href="{% url 'course' i.courseID %}">{{ i.course }}</a></p>
                             <p class="others" ><a href="{% url 'teacher' i.teacherID %}">{{ i.teacher }}</a></p>
                             <p class="others">平均分：{{ i.grade }} 通过率：{{ i.pass }}</p>
@@ -168,19 +155,31 @@
     $(document).ready(
         function () {
             i = 0
-            j = i + 10
+            j = i + 10;
             for (i; i < j; i++)
                 $('.courseblank:eq(' + i + ')').show()
             $("div.more").click(
                 function () {
-                    j = i + 10
+                    j = i + 10;
                     for (i; i < j; i++)
                         $('.courseblank:eq(' + i + ')').show()
                 }
             )
         }
-    )
 
+
+    );
+    {% for i in infoObjList %}
+        for (var i=0;i< Math.round({{ i.judge }});i++)
+        {
+            $("#star" + {{ i.index }}).append("<img src={% static "img/backgroundimg/star.png" %}>");
+        }
+
+        for (var i=Math.round({{ i.judge }});i<5;i++)
+        {
+            $("#star" + {{ i.index }}).append("<img src={% static "img/backgroundimg/starO.png" %}>");
+        }
+    {% endfor %}
 </script>
 
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
@@ -192,8 +191,6 @@
     ga.l = +new Date;
     ga('create', 'UA-XXXXX-Y', 'auto');
     ga('send', 'pageview')
-</script>
-<script type="text/javascript">
 </script>
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 </body>
