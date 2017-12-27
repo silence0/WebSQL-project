@@ -157,12 +157,15 @@
             i = 0
             j = i + 10;
             for (i; i < j; i++)
-                $('.courseblank:eq(' + i + ')').show()
+                $('.courseblank:eq(' + i + ')').show();
             $("div.more").click(
                 function () {
                     j = i + 10;
                     for (i; i < j; i++)
-                        $('.courseblank:eq(' + i + ')').show()
+                        $('.courseblank:eq(' + i + ')').slideDown();
+                    jQuery('html,body').animate({  
+                        scrollTop: jQuery('.courseblank:eq(' + (i-10) + ')').offset().top-50  
+                    }, 500);  
                 }
             )
         }
