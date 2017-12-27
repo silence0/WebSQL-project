@@ -14,8 +14,8 @@ from app.courseinfo import getCourseInfo
 from app.courseinfo import putComment
 from app.teacherinfo import getTeacherInfo
 from app.serach import searchByLesson, searchByTeacher, notFoundException
-
-
+import execjs
+from app.saveStudentInfo import rsaGetPassword
 
 # Create your views here.
 class log:
@@ -31,6 +31,7 @@ class log:
         assert isinstance(request, WSGIRequest)
         id = request.POST['userID']
         pw = request.POST['userPassword']
+        pw = rsaGetPassword(pw)
         if id == '1' and pw == '1':
             id = '320150938821'
             pw = 'BaI19970909'

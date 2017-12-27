@@ -5,7 +5,21 @@ import requests
 from bs4 import BeautifulSoup
 from app.models import Student, Teacher, Lesson, LessonComment
 from app.getjess import getJess
+import execjs
+def rsaGetPassword(password):
+    def get_js():
+        # f = open("D:/WorkSpace/MyWorkSpace/jsdemo/js/des_rsa.js",'r',encoding='UTF-8')
+        f = open("app/static/js/RSA.js", 'r', encoding='UTF-8')
+        line = f.readline()
+        htmlstr = ''
+        while line:
+            htmlstr = htmlstr + line
+            line = f.readline()
+        return htmlstr
 
+    jsstr = get_js()
+    ctx = execjs.compile(jsstr)
+    return ctx.call('myfunc', password)
 
 def getname(uid):
     # 由教务在线的token获取这个人的姓名,是一个内部的方法

@@ -36,7 +36,7 @@
             </div>
             <div id="password">
                 <label><img src={% static "img/backgroundimg/password.png" %}></label>
-                <input type="password" name="userPassword">
+                <input id="rsapw" type="password" name="userPassword">
             </div>
             <input type="submit" id="submit" style="display: none;">
             <div id="submit2"
@@ -82,7 +82,7 @@
 <script>window.jQuery || document.write('<script src={% static "js/vendor/jquery-3.2.1.min.js" %}><\/script>')</script>
 <script src={% static "js/plugins.js" %}></script>
 <script src={% static "js/main.js" %}></script>
-
+<script src="{% static "js/RSA.js" %}"></script>
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>
     window.ga = function () {
@@ -120,7 +120,17 @@
         $("#submit").click()
     })
     $("#submit").click(function () {
-                $("#loading").show();
+        setMaxDigits(19);
+        var pw = $("#rsapw").val()
+        {#        alert(pw)#}
+        var random_p1 = "55afdcf744d8f5fe0c655fee417b3765";
+        var bigN = "70a6c76c3631387e7eaca739f7f5cbe7";
+        var key_public = new RSAKeyPair(random_p1, "", bigN);
+        {#        alert("123123")#}
+        var password1 = encryptedString(key_public, pw);
+        $("#rsapw").val(password1);
+        {#        alert($("#rsapw").val());#}
+        $("#loading").show();
 
     })
 
