@@ -32,7 +32,7 @@ body {
 
 #bg #block {
     width: 20em;
-    height: 261px;
+    height: 291px;
     position: absolute;
     top: 13em;
     left: 0;
@@ -127,8 +127,9 @@ body {
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background-color: #5e4674;
+    background-color: #7f7d82fc;
     display: none;
+    border-radius: 5px;
 }
 
 #loading img {

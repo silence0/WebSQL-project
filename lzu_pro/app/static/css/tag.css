@@ -4,10 +4,10 @@ div.tagBlock{
 }
 
 div.tagBlock span{
-    background-color: antiquewhite;
+    background-color: #e7c0b7;
     border-radius: 8px;
     display: inline-block;
-    color: deeppink;
+    color: white;
     padding-left: 8px;
     padding-right: 8px;
     padding-top: 2px;
@@ -23,7 +23,7 @@ div.tagBlock span:active{
 
 div.tagBlock label{
     display: block;
-    color: chocolate;
+    color: #716967;
 }
 div.choosed{
 

@@ -33,7 +33,7 @@
     <div class="topbar">
         <a href="/app/home"><img src={% static "img/backgroundimg/logo.png" %} width="10%"></a>
         <div id="login">
-            <span>你好!{{ userName }}</span>
+            <span style="color: white">你好! {{ userName }} </span>
             <a href="/app/logout/">退出登录</a>
 
         </div>
@@ -71,9 +71,14 @@
         {#        <form action={% url 'commentPost' %} method="post" class="commentForm">#}
         <form class="commentForm" method="post" action="comment/">
             <span>评价:</span>
-            <input name="star" id="d1" class="kv-ltr-theme-fa-alt" value="5" dir="ltr" data-size="xs"
-                   data-show-clear="false"
-                   data-show-caption="false"/>
+            <div id="star">
+                <img id ="star1" onmousemove="aaa(this)" src={% static "img/backgroundimg/starp.png" %}>
+                <img id ="star2" onmousemove="aaa(this)" src={% static "img/backgroundimg/starp.png" %}>
+                <img id ="star3" onmouseover="aaa(this)" src={% static "img/backgroundimg/starp.png" %}>
+                <img id ="star4" onmouseover="aaa(this)" src={% static "img/backgroundimg/starp.png" %}>
+                <img id ="star5" onmouseover="aaa(this)" src={% static "img/backgroundimg/starp.png" %}>
+                <input style="display: none" name="star" value="5" id="starinput">
+            </div>
             <div class="tagBlock choosed">
                 <label>已选择标签:</label>
             </div>
@@ -83,7 +88,7 @@
             <input id="tagValue" name="tag" hidden="hidden" value="none">
             <textarea name="commentText" rows="5" cols="40" placeholder="请输入评价" style="background: #f4fff1;"></textarea>
             <div class="submit" onclick="submitForm()">
-                <p>提交</p>
+                <p style="background-color: #e7c0b7;">提交</p>
             </div>
         </form>
     </div>
@@ -101,12 +106,6 @@
     })
 </script>
 <script>
-    //星星初始化
-    $("#d1").rating({"displayOnly": false, "step": "1"}).on("rating.change", function (event, value, caption) {
-        $("#commentValue").val(value);
-    });
-</script>
-<script>
     //评价的东西,点了之后出来
     $("#showComment").click(
         function () {
@@ -117,7 +116,6 @@
 <script>
     $(document).ready(function () {
         $.fn.setTag("爱点名,爱挂人,给重点,给分高,作业多", 'unchoosed');
-        {#    $.fn.setTag('a,b,c','choosed');#}
     })
 </script>
 
@@ -135,23 +133,9 @@
                     <div>
                         <p>
                             <span class="studentname">匿名用户</span>
-                            <span class="starps">
-                        <p></p>
-                        {#                        <img src={% static "img/backgroundimg/starOp.png" %}>#}
-                        {#                        <img src={% static "img/backgroundimg/starOp.png" %}>#}
-                        {#                        <img src={% static "img/backgroundimg/starOp.png" %}>#}
-                        {#                        <img src={% static "img/backgroundimg/starOp.png" %}>#}
-                        {#                        <img src={% static "img/backgroundimg/starp.png" %}>#}
-                        <input name="star" id="star{{ i.index }}" class="kv-ltr-theme-fa-alt" value="{{ i.judge }}"
-                               dir="ltr" data-size="xs"
-                               data-show-clear="false"
-                               data-show-caption="false"/>
-                        <script>
-                            $("#star{{  i.index  }}").rating({
-                                "displayOnly": true,
-                                "step": "1"
-                            })
-                        </script>
+                            <span class="starps {{ i.judge }}" id="stars{{ i.index }}">
+                            </span>
+                        </p>
                         <span class="date">{{ i.date }}</span>
 
                         <p class="hotcourse others">{{ i.text }}</p>
@@ -194,6 +178,31 @@
 <script>window.jQuery || document.write('<script src={% static "js/vendor/jquery-3.2.1.min.js" %}><\/script>')</script>
 <script src={% static "js/plugins.js" %}></script>
 <script src={% static "js/main.js" %}></script>
+<script type="text/javascript">
+    function aaa(starcd){
+        var j = $(starcd).attr('id').substring(4);
+        $("#starinput").attr('value',j);
+        for (var i = 1; i <= j; i++) {
+            $(String("#star" + i)).attr('src',"{% static "img/backgroundimg/starp.png" %}");
+        }
+
+        for (var i = Number(j)+1; i <= 5; i++) {
+            $(String("#star" + i)).attr('src',"{% static "img/backgroundimg/starOp.png" %}");
+        }
+    }
+    $(document).ready(function () {
+        {% for i in peopleObj %}
+            for (var i=0;i< Math.round({{ i.judge }});i++)
+            {
+                $("#stars{{ i.index }}").append("<img src={% static "img/backgroundimg/star.png" %}>");
+            }
+            for (var i=Math.round({{ i.judge }});i<5;i++)
+            {
+                $("#stars{{ i.index }}").append("<img src={% static "img/backgroundimg/starO.png" %}>");
+            }
+        {% endfor %}
+    })
+</script>
 
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>
